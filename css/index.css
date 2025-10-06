@@ -267,12 +267,57 @@ aside {
 }
 
 .content-sub {
-  height: fit-content;
-  overflow: hidden;
+  width: 100%;
+  overflow-x: auto;
   position: sticky;
-  top: 65px;
+  top: 60px;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.678);
+  scroll-behavior: smooth;
+  anchor-name: --carousel;
+}
+
+.content-sub::-webkit-scrollbar {
+  display: none;
+}
+
+.content-sub::scroll-button(right),
+.content-sub::scroll-button(left) {
+  content: ">";
+  border: none;
+  background: white;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  position-anchor: --carousel;
+  position-area: right center;
+  translate: -100%;
+}
+
+.content-sub::scroll-button(left) {
+  content: "<";
+  position-anchor: --carousel;
+  position-area: left center;
+  translate: 45px;
+}
+
+.content-sub::scroll-button(right):disabled,
+.content-sub::scroll-button(left):disabled {
+  opacity: 0;
+  cursor: auto;
+}
+
+.content-sub::scroll-button(left):hover {
+  background: var(--hover);
+}
+
+.content-sub::scroll-button(right):hover {
+  background: var(--hover);
 }
 
 .flex {
@@ -328,11 +373,12 @@ aside {
 
 .minu {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.699);
+  background-color: #292828;
   color: white;
   padding: 1px 4px;
-  border-radius: 5px;
+  border-radius: 4px;
   margin: 8px;
+  font-size: 13px;
 }
 
 .titel-v {
@@ -389,7 +435,6 @@ aside {
     width: 100%;
     justify-content: space-between;
     padding: 0 16px;
-    backdrop-filter: blur(10px);
   }
   .conten-txt-lup input {
     display: flex;
@@ -445,12 +490,10 @@ aside {
   }
 
   .content-sub {
-    height: fit-content;
-    overflow: hidden;
+    width: 100%;
+    overflow-x: auto;
     position: sticky;
     top: 0px;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.678);
   }
 
   .content-griya {
