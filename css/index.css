@@ -344,7 +344,7 @@ aside {
 .content-griya {
   display: grid;
   gap: 10px;
-  padding: 24px;
+  padding: 24px 24px 24px 0;
 }
 
 .video {
