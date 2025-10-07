@@ -487,7 +487,15 @@ aside {
     height: 100%;
     overflow-x: hidden;
   }
+  /* Estilos para ocultar la barra de desplazamiento en diferentes navegadores */
+  aside::-webkit-scrollbar {
+    display: none; /* Para navegadores basados en WebKit (Chrome, Safari) */
+  }
 
+  aside {
+    -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+    scrollbar-width: none; /* Para Firefox */
+  }
   .conten {
     display: flex;
     flex-direction: column;
